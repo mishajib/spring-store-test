@@ -9,10 +9,9 @@ public class StoreApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-        var orderService = context.getBean(OrderService.class);
-        var manager = context.getBean(NotificationManager.class);
-        orderService.placeOrder();
-        manager.sendNotification("This is Spring boot!");
+        var resource = context.getBean(HeavyResource.class);
+//        var orderService = context.getBean(OrderService.class);
+//        orderService.placeOrder();
     }
 
 }
