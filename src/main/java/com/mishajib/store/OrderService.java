@@ -1,5 +1,7 @@
 package com.mishajib.store;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,16 @@ public class OrderService {
     public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
         System.out.println("Order service created");
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("OrderService PostConstruct");
+    }
+
+    @PreDestroy
+    public void cleanup() {
+        System.out.println("OrderService PreDestroy");
     }
 
     public void placeOrder() {
