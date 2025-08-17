@@ -9,3 +9,7 @@ stripe:
   supported-currencies: USD,EUR,GBP
 
 payment-gateway: paypal
+
+mail:
+  host: 127.0.0.1
+  port: 465
