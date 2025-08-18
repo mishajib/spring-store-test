@@ -1,16 +1,13 @@
 package com.mishajib.store.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-@Builder
 @Entity
 @Table(name = "products")
 public class Product {
@@ -27,6 +24,6 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    @ToString.Exclude
     private Category category;
+
 }

@@ -13,17 +13,6 @@ public class StoreApplication {
 
     public static void main(String[] args) {
 //        ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-        var category = Category.builder()
-                .name("Category1")
-                .build();
-        var product = Product.builder()
-                .name("Product1")
-                .price(new BigDecimal("10000"))
-                .build();
-
-        category.addProduct(product);
-
-        System.out.println(category);
     }
 
 }
