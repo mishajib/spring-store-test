@@ -1,6 +1,7 @@
 package com.mishajib.store;
 
 import com.mishajib.store.entities.Address;
+import com.mishajib.store.entities.Profile;
 import com.mishajib.store.entities.Tag;
 import com.mishajib.store.entities.User;
 import org.springframework.boot.SpringApplication;
@@ -18,7 +19,12 @@ public class StoreApplication {
                 .password("12345")
                 .build();
 
-        user.addTag("tag1");
+        var profile = Profile.builder()
+                        .bio("Software Development")
+                                .build();
+
+        user.setProfile(profile);
+        profile.setUser(user);
 
         System.out.println(user);
     }
