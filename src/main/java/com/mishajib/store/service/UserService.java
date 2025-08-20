@@ -1,6 +1,7 @@
 package com.mishajib.store.service;
 
 import com.mishajib.store.entities.User;
+import com.mishajib.store.repositories.ProfileRepository;
 import com.mishajib.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
 
     @Transactional
@@ -34,5 +36,11 @@ public class UserService {
         } else {
             System.out.println("Transient / Detached");
         }
+    }
+
+    @Transactional
+    public void showRelatedEntities() {
+        var profile = profileRepository.findById(1L).orElseThrow();
+        System.out.println(profile.getUser().getEmail());
     }
 }
